@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
+import { Image } from "astro:assets";
 ---
 
 <footer class="footer">
@@ -7,11 +8,11 @@ const currentYear = new Date().getFullYear();
     <div class="footer-content">
       <div class="footer-logo">
         <a href="/">
-          <img
-            src="/images/logo-white.svg"
+          <Image
+            src="/logo.webp"
             alt="Gentle Touch Mobile Phlebotomy Service LLC"
-            width="160"
-            height="50"
+            width={90}
+            height={60}
           />
         </a>
         <p>Professional blood drawing services in the comfort of your home.</p>
@@ -41,8 +42,8 @@ const currentYear = new Date().getFullYear();
 
         <div class="footer-column">
           <h4>Contact Us</h4>
-          <ul class="contact-info">
-            <li><i class="fa-solid fa-phone"></i> (864) 754-2181</li>
+          <ul class="footer-contact-info">
+            <li><i class="fa-solid fa-phone"></i> (813) 400-4580</li>
             <li>
               <i class="fa-solid fa-envelope"></i> admin@gentlephlebotomy.com
             </li>
