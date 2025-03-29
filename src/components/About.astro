@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="section-header">
+        <h2>About Gentle Touch</h2>
+        <p>Professional care with a personal touch</p>
+      </div>
+
+      <p>
+        Gentle Touch Mobile Phlebotomy Service LLC was founded with a simple
+        mission: to provide convenient, professional blood drawing services with
+        the highest level of care and compassion.
+      </p>
+
+      <p>
+        Our team consists of certified phlebotomists with years of experience in
+        hospitals, clinics, and laboratories. We understand that having your
+        blood drawn can be stressful, which is why we prioritize gentle
+        techniques and patient comfort.
+      </p>
+
+      <div class="about-features">
+        <div class="feature">
+          <i class="fa-solid fa-certificate"></i>
+          <span>Certified Professionals</span>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Years of Experience</span>
+        </div>
+        <div class="feature">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>HIPAA Compliant</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-image">
+      <Image
+        src="/images/about-image.jpg"
+        alt="Our professional phlebotomy team"
+        width={500}
+        height={400}
+      />
+    </div>
+  </div>
+</section>

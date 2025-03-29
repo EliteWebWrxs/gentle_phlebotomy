@@ -1,0 +1,50 @@
+---
+const services = [
+  {
+    title: "Blood Draws",
+    description:
+      "Professional venipuncture services for lab work, performed by certified phlebotomists.",
+    icon: "fa-solid fa-droplet", // Correct FontAwesome class for blood drop
+  },
+  {
+    title: "Home Visits",
+    description:
+      "We come to your home, office, or care facility at a time that works for you.",
+    icon: "fa-solid fa-house", // Correct FontAwesome class for home
+  },
+  {
+    title: "Special Populations",
+    description:
+      "Specialized care for elderly, pediatric, and difficult venous access patients.",
+    icon: "fa-solid fa-heart", // Correct FontAwesome class for heart
+  },
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Professional phlebotomy services tailored to your needs</p>
+    </div>
+
+    <div class="services-grid">
+      {
+        services.map((service) => (
+          <div class="service-card">
+            <div class="service-icon">
+              <i class={`${service.icon}`} />
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="services-cta">
+      <p>Need a specialized service not listed here?</p>
+      <a href="#contact" class="btn btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,119 @@
+---
+const testimonials = [
+  {
+    quote:
+      "The phlebotomist was incredibly gentle and professional. As someone with difficult veins, I was amazed at how painless the experience was.",
+    author: "Sarah M.",
+    location: "Local Patient",
+  },
+  {
+    quote:
+      "Having a phlebotomist come to my home has been life-changing. No more taking time off work or sitting in waiting rooms.",
+    author: "James T.",
+    location: "Busy Professional",
+  },
+  {
+    quote:
+      "We use Gentle Touch for our elderly mother who has mobility issues. Their service is compassionate, reliable, and truly a blessing for our family.",
+    author: "Linda K.",
+    location: "Caregiver",
+  },
+];
+---
+
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Our Clients Say</h2>
+      <p>Hear from people who have experienced our gentle touch</p>
+    </div>
+
+    <div class="testimonials-slider">
+      {
+        testimonials.map((testimonial) => (
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fa-solid fa-quote-left" />
+              <p>{testimonial.quote}</p>
+            </div>
+            <div class="testimonial-author">
+              <p class="name">{testimonial.author}</p>
+              <p class="location">{testimonial.location}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="testimonial-controls">
+      <button class="prev-btn" aria-label="Previous testimonial">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div class="testimonial-dots"></div>
+      <button class="next-btn" aria-label="Next testimonial">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simple testimonial slider
+  const testimonialCards = document.querySelectorAll(".testimonial-card");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const dotsContainer = document.querySelector(".testimonial-dots");
+
+  let currentIndex = 0;
+
+  // Create dots
+  testimonialCards.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.classList.add("dot");
+    dot.setAttribute("aria-label", `Go to testimonial ${index + 1}`);
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goToSlide(index));
+    dotsContainer?.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".dot");
+
+  function updateSlider() {
+    testimonialCards.forEach((card, index) => {
+      card.style.transform = `translateX(${100 * (index - currentIndex)}%)`;
+      card.setAttribute(
+        "aria-hidden",
+        index !== currentIndex ? "true" : "false"
+      );
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlider();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % testimonialCards.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentIndex =
+      (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+    updateSlider();
+  }
+
+  nextBtn?.addEventListener("click", nextSlide);
+  prevBtn?.addEventListener("click", prevSlide);
+
+  // Initialize slider
+  updateSlider();
+
+  // Auto-advance slider
+  setInterval(nextSlide, 5000);
+</script>

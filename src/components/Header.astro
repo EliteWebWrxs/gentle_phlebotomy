@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+---
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <Image
+          src="/images/logo.svg"
+          alt="Gentle Touch Mobile Phlebotomy Service LLC"
+          width={180}
+          height={60}
+        />
+      </a>
+    </div>
+
+    <nav class="nav">
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#benefits">Why Choose Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="btn btn-primary">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const navList = document.querySelector(".nav-list");
+
+  mobileMenuToggle?.addEventListener("click", () => {
+    navList?.classList.toggle("active");
+    mobileMenuToggle.classList.toggle("active");
+  });
+
+  // Close mobile menu when clicking on a link
+  const navLinks = document.querySelectorAll(".nav-list a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navList?.classList.remove("active");
+      mobileMenuToggle?.classList.remove("active");
+    });
+  });
+</script>

@@ -1,0 +1,140 @@
+---
+
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2>Book an Appointment</h2>
+      <p>Schedule your mobile phlebotomy service today</p>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <ul class="contact-list">
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:8647542181">(864) 754-2181</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="admin@gentlephlebotomy.com">admin@gentlephlebotomy.com</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <address>
+              Serving The Greater Tampa Bay Area and Surrounding Communities
+            </address>
+          </li>
+          <li>
+            <i class="fa-solid fa-clock"></i>
+            <p>
+              Available Monday-Friday: 9am-6pm<br />Weekends: By appointment
+            </p>
+          </li>
+        </ul>
+
+        <div class="social-links">
+          <a href="https://facebook.com" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://instagram.com" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form id="appointment-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+              <input type="time" id="time" name="time" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="blood-draw">Blood Draw</option>
+              <option value="insurance">Insurance Collection</option>
+              <option value="elderly">Elderly Care</option>
+              <option value="pediatric">Pediatric Service</option>
+              <option value="other">Other (please specify)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+
+          <div class="form-group form-checkbox">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent"
+              >I consent to having my data stored and used to contact me
+              regarding my appointment.</label
+            >
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full"
+            >Schedule Appointment</button
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form validation and submission
+  const form = document.getElementById("appointment-form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Here you would typically send the form data to your server
+    // For this example, we'll just show a success message
+
+    const formData = new FormData(form as HTMLFormElement);
+    const formValues = Object.fromEntries(formData.entries());
+
+    console.log("Form submitted:", formValues);
+
+    // Show success message
+    const successMessage = document.createElement("div");
+    successMessage.classList.add("form-success");
+    successMessage.innerHTML = `
+      <h3>Thank you for your request!</h3>
+      <p>We've received your appointment request and will contact you shortly to confirm.</p>
+    `;
+
+    form.innerHTML = "";
+    form.appendChild(successMessage);
+  });
+</script>

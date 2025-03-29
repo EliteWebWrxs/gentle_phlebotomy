@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Professional Blood Drawing Services in the Comfort of Your Home</h1>
+      <p>
+        Gentle Touch Mobile Phlebotomy brings certified phlebotomy services
+        directly to you. No waiting rooms, no travel, just convenient and
+        professional care.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Schedule an Appointment</a>
+        <a href="#services" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <Image
+        src="/images/hero-image.jpg"
+        alt="Professional phlebotomist providing gentle care"
+        width={600}
+        height={400}
+      />
+    </div>
+  </div>
+</section>
