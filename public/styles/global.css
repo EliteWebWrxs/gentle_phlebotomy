@@ -288,7 +288,12 @@ p {
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  max-width: 400px;
+  max-width: 450px;
+  @media (max-width: 760px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .hero-image img {
@@ -533,6 +538,7 @@ p {
   color: white;
   padding: 2rem;
   border-radius: var(--border-radius-md);
+  margin-top: 66px;
 }
 
 .contact-info h3 {
@@ -590,12 +596,9 @@ p {
   );
 }
 
-.contact-form {
-  background-color: white;
-  padding: 2rem;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
-}
+/* .contact-form {
+  margin-top: -66px;
+} */
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -739,6 +742,7 @@ textarea:focus {
   .hero .container,
   .about .container {
     grid-template-columns: 1fr;
+    place-items: center;
   }
 
   .hero-content {
@@ -754,6 +758,7 @@ textarea:focus {
 
   .hero-buttons {
     justify-content: center;
+    flex-direction: column;
   }
 
   .about-content {
