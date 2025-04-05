@@ -1,0 +1,199 @@
+---
+// Define the FAQ items
+const faqItems = [
+  {
+    question: "What services does your mobile phlebotomy business offer?",
+    answer:
+      "We offer a range of blood draw services including routine lab work, specialized tests, blood donations, and genetic testing. Our certified phlebotomists come directly to your home, office, or care facility for your convenience.",
+  },
+  {
+    question: "How do I schedule an appointment?",
+    answer:
+      "You can schedule an appointment through our website, by calling us at (813) 400-4580, or by emailing us at admin@gentlephlebotomy.com. We offer same-day appointments when available and can accommodate early morning, evening, and weekend requests.",
+  },
+  {
+    question: "How should I prepare for a blood draw?",
+    answer:
+      "For most tests, we recommend staying well-hydrated (unless fasting is required), wearing clothing with easy access to your arms, and having your doctor's order and ID ready. For fasting tests, follow your doctor's instructions about food and drink restrictions. Our phlebotomist will confirm any specific preparations when your appointment is scheduled.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "We serve the greater Tampa Bay area and surrounding suburbs. If you’re unsure whether we cover your location, feel free to contact us!",
+  },
+  {
+    question: "Are your phlebotomists certified?",
+    answer:
+      "Yes! I am a certified professional with extensive experience in safely and efficiently drawing blood. We follow strict safety and hygiene protocols to ensure a comfortable and stress-free experience for every patient.",
+  },
+  {
+    question: "How quickly will I receive my results?",
+    answer:
+      "The timing for receiving your results depends on the lab processing your samples and your doctor’s office. Typically, results are available within 2–7 business days, but this can vary based on the type of test and the lab’s processing times. We recommend checking with your doctor or the lab for a more specific timeframe.",
+  },
+];
+---
+
+<div class="faq-container">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-list">
+    {
+      faqItems.map((item, index) => (
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+          >
+            {item.question}
+            <span class="plus">+</span>
+            <span class="minus">−</span>
+          </button>
+          <div class="faq-answer" id={`faq-answer-${index}`} hidden>
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+  }
+
+  h2 {
+    color: #1a5276;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    background-color: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+
+  .faq-question:hover {
+    background-color: #f1f1f1;
+  }
+
+  .plus,
+  .minus {
+    font-size: 20px;
+    color: #1a5276;
+  }
+
+  .minus {
+    display: none;
+  }
+
+  .faq-question[aria-expanded="true"] .plus {
+    display: none;
+  }
+
+  .faq-question[aria-expanded="true"] .minus {
+    display: inline;
+  }
+
+  .faq-question[aria-expanded="true"] {
+    background-color: #e6f0f7;
+    border-bottom: 1px solid #d1e0eb;
+  }
+
+  .faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-out,
+      padding 0.3s ease;
+  }
+
+  .faq-answer:not([hidden]) {
+    padding: 16px 20px;
+    max-height: 500px;
+  }
+
+  .faq-answer p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .faq-container {
+      padding: 15px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .faq-question {
+      font-size: 15px;
+      padding: 14px 16px;
+    }
+
+    .faq-answer:not([hidden]) {
+      padding: 14px 16px;
+    }
+  }
+</style>
+
+<script>
+  // Client-side JavaScript for the accordion functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const questions = document.querySelectorAll(".faq-question");
+
+    questions.forEach((question) => {
+      question.addEventListener("click", () => {
+        const expanded = question.getAttribute("aria-expanded") === "true";
+        const answerId = question.getAttribute("aria-controls");
+        const answer = document.getElementById(answerId);
+
+        // Toggle the expanded state
+        question.setAttribute("aria-expanded", !expanded);
+
+        // Toggle the hidden attribute
+        if (expanded) {
+          answer.setAttribute("hidden", "");
+        } else {
+          answer.removeAttribute("hidden");
+        }
+      });
+    });
+  });
+</script>
