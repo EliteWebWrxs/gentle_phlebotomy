@@ -41,30 +41,25 @@ const { title, description } = Astro.props;
         "name": "Gentle Touch Mobile Phlebotomy Service LLC",
         "description": "Professional mobile phlebotomy services in the comfort of your home or office.",
         "url": "https://gentletouchphlebotomy.com",
-        "telephone": "+1-555-123-4567",
+        "telephone": "+1-813-400-4580",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Main Street",
-          "addressLocality": "Your City",
-          "addressRegion": "YC",
-          "postalCode": "12345",
+          "streetAddress": "",
+          "addressLocality": "Tampa Bay",
+          "addressRegion": "FL",
+          "postalCode": "",
           "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "40.7128",
-          "longitude": "-74.0060"
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
+          "opens": "07:00",
           "closes": "18:00"
-        },
-        "sameAs": [
-          "https://www.facebook.com/gentletouchphlebotomy",
-          "https://www.instagram.com/gentletouchphlebotomy"
-        ]
+        }
+        // "sameAs": [
+        //   "https://www.facebook.com/gentletouchphlebotomy",
+        //   "https://www.instagram.com/gentletouchphlebotomy"
+        // ]
       }
     </script>
 
@@ -73,6 +68,7 @@ const { title, description } = Astro.props;
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <link rel="icon" type="image/png" href="/logo.webp" />
   </head>
   <body>
     <slot />
